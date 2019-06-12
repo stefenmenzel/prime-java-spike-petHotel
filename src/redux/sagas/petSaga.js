@@ -7,7 +7,7 @@ function* addPet(action) {
     try {
         const petResponse = yield axios.post(`/addPet`, action.payload);
         console.log('addPet Response', petResponse.data);
-        yield put({ type: 'FETCH_PETS', petResponse.data })
+        yield put({ type: 'FETCH_PETS', payload: petResponse.data })
     } catch (error) {
         console.log('error in postName', error )
     }
