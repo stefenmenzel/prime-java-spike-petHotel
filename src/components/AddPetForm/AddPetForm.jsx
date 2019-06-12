@@ -17,6 +17,7 @@ class AddPetForm extends Component {
     };
 
     handleSubmit = (event) => {
+       event.preventDefault();
         console.log('in handleSubmit. Good work team.');
         this.props.dispatch({
             type: 'ADD_PET',
@@ -28,6 +29,10 @@ class AddPetForm extends Component {
 
 
  render(){
+     console.log('state petName: ', this.state.petName);
+     console.log('state pet Type: ', this.state.petType);
+     console.log('state pet color: ', this.state.petColor);
+     
     return(
         <>
         <div>
@@ -51,7 +56,7 @@ class AddPetForm extends Component {
             <option>Owners In</option>
             <option>Database</option>
           </select>
-           <button></button>
+           <button type="submit" name="submit">Submit Pet</button>
          </form>
         </div>
         </>
