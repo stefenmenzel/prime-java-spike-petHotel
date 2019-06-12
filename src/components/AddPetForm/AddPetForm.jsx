@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
+import { TextField, Button, MenuItem } from '@material-ui/core';
 
 class AddPetForm extends Component {
 
@@ -37,26 +38,50 @@ class AddPetForm extends Component {
         <>
         <div>
          <form onSubmit={this.handleSubmit}>
-          <h6>Pet Name:</h6>
-          <label htmlFor="Pet Name">
-          <input type="text" name="Pet Name"  onChange={this.handleInputChangeFor('petName')}></input>
-          </label>
-          <h6>Pet Color:</h6>
-          <label htmlFor="Pet Color">
-            <input type="text" name="Pet Color" onChange={this.handleInputChangeFor('petColor')}></input>
-          </label>
-          <h6>Pet Type:</h6>
-           <label htmlFor="Pet Type">
-            <input type="text" name="Pet Type" onChange={this.handleInputChangeFor('petType')}></input>
-          </label>
-          <h6>Owner:</h6>
-          <select onChange={this.handleInputChangeFor('ownerName')}>
-            <option>Need To</option>
-            <option>Map Over</option>
-            <option>Owners In</option>
-            <option>Database</option>
-          </select>
-           <button type="submit" name="submit">Submit Pet</button>
+          <TextField 
+           id="Pet Name"
+           label="Pet Name"
+           onChange={this.handleInputChangeFor('petName')}
+           margin="normal"
+           variant="outlined"
+           helperText="What's Your Pets Name, Punk?"
+           fullWidth
+          />
+          <TextField 
+           id="Pet Color"
+           label="Pet Color"
+           onChange={this.handleInputChangeFor('petColor')}
+           margin="normal"
+           variant="outlined"
+           helperText="It's gotta be a color. Don't be weird."
+           fullWidth
+          />
+          <TextField 
+            id="Pet Type"
+            label="Pet Type"
+            onChange={this.handleInputChangeFor('petType')}
+            margin="normal"
+            variant="outlined"
+            fullWidth
+            helperText="If it's a snake, don't lie and say it's a puppy"
+          />
+          <TextField 
+           select
+           label="Owner"
+           variant="outlined"
+           onChange={this.handleInputChangeFor('ownerName')}
+           helperText="Who Are You Really?"
+           margin="normal"
+           fullWidth
+          >
+            <MenuItem>Need</MenuItem>
+            <MenuItem>To</MenuItem>
+            <MenuItem>Get</MenuItem>
+            <MenuItem>Reducer</MenuItem>
+            <MenuItem>Stuff</MenuItem>
+          </TextField>
+        
+           <Button type="submit" name="submit" variant="contained" color="primary">Submit Pet</Button>
          </form>
         </div>
         </>
