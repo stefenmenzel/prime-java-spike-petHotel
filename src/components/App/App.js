@@ -19,6 +19,7 @@ class App extends Component {
        <div>
          <header>
            <h1 className="App-header">Really Snazzy Pet Spa</h1>
+           <h4>We'll For Sure Be Nice To Your Pet.</h4>
          </header>
        </div>
        <Route
