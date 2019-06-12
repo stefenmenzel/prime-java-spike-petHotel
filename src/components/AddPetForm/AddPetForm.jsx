@@ -18,8 +18,11 @@ class AddPetForm extends Component {
 
     handleSubmit = (event) => {
         console.log('in handleSubmit. Good work team.');
-        
-    }
+        this.props.dispatch({
+            type: 'ADD_PET',
+            payload: this.state
+        })
+    }; // end handleSubmit
 
 
 
