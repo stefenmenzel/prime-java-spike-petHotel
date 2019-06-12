@@ -9,7 +9,7 @@ import {connect} from 'react-redux';
 import './App.css';
 import ownersView from '../OwnersView/ownersview.js';
 import AddPetForm from '../AddPetForm/AddPetForm.jsx';
-
+import PetTable from '../PetTable/PetTable.jsx';
 
 class App extends Component {
 
@@ -26,6 +26,7 @@ class App extends Component {
        component={ownersView}
       />
       <AddPetForm />
+      <PetTable />
      </Router>
    )
   }
