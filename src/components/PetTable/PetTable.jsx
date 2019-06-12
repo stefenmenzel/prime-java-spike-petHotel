@@ -1,5 +1,7 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
+import { Table, TableBody, TableCell, TableHead, TableRow } from '@material-ui/core'
+
 
 class PetTable extends Component {
 
@@ -8,28 +10,28 @@ class PetTable extends Component {
    <>
    <h2>History</h2>
    <div>
-    <table>
-      <thead>
-        <tr>
-        <th>Owner</th>
-        <th>Pet</th>
-        <th>Animal Type</th>
-        <th>Color</th>
-        <th>Checked In</th>
-        <th>Actions</th>
-       </tr>
-      </thead>
-      <tbody>
-        <tr>
-         <td>Need</td>
-         <td>To</td>
-         <td>Map</td>
-         <td>Over</td>
-         <td>Reducer</td>
-         <td>Here</td>
-        </tr>
-      </tbody>
-    </table>
+    <Table>
+      <TableHead>
+        <TableRow>
+        <TableCell>Owner</TableCell>
+        <TableCell>Pet</TableCell>
+        <TableCell>Animal Type</TableCell>
+        <TableCell>Color</TableCell>
+        <TableCell>Checked In</TableCell>
+        <TableCell>Actions</TableCell>
+       </TableRow>
+      </TableHead>
+      <TableBody>
+        <TableRow>
+         <TableCell>Need</TableCell>
+         <TableCell>To</TableCell>
+         <TableCell>Map</TableCell>
+         <TableCell>Over</TableCell>
+         <TableCell>Reducer</TableCell>
+         <TableCell>Here</TableCell>
+        </TableRow>
+      </TableBody>
+    </Table>
    
    
    </div> 
