@@ -1,20 +1,18 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
+import AddOwnerForm from '../AddOwnerForm/AddOwnerForm';
+import OwnerTable from '../OwnerTable/OwnerTable';
 
 class ownersView extends Component {
     render(){
         return(
             <div>
-                <p>TEST</p>
+                <AddOwnerForm />
+                <OwnerTable />
             </div>
         )
     }
 }
 
-const mapStateToProps = (reduxState) => {
-    return {
-        reduxState
-    }
-}
 
-export default connect(mapStateToProps)(ownersView);
+export default ownersView;

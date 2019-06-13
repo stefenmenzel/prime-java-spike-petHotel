@@ -6,9 +6,9 @@ import axios from 'axios';
 // Adds new pet to the DB
 function* addPet(action) {
     try {
-        const petResponse = yield axios.post(`/addPet`, action.payload);
-        console.log('addPet Response', petResponse.data);
-        yield put({ type: 'FETCH_PETS', payload: petResponse.data })
+        console.log('in add pet with: ', action.payload);
+        yield axios.post(`/addPet`, action.payload);        
+        yield put({ type: 'FETCH_PETS'})
     } catch (error) {
         console.log('error in postName', error )
     }

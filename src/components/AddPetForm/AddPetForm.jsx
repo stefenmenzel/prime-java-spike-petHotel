@@ -5,18 +5,21 @@ import { TextField, Button, MenuItem } from '@material-ui/core';
 class AddPetForm extends Component {
 
     state = {
-        petName: '', 
-        petColor: '',
-        petType: '', 
-        ownerName: ''
+        name: '', 
+        color: '',
+        type: '', 
+        date: new Date().toISOString().substr(0, 10),
+        owner_id: ''
     }
 
     componentDidMount(){
-        this.props.dispatch({ type: 'FETCH_PETS' })
+        this.props.dispatch({ type: 'FETCH_PETS' });
+        this.props.dispatch({type: 'FETCH_OWNERS'});
     }
 
     handleInputChangeFor = propertyName => (event) => {
         this.setState({
+            ...this.state,
             [propertyName]: event.target.value,
         });
     };
@@ -37,6 +40,7 @@ class AddPetForm extends Component {
      console.log('state petName: ', this.state.petName);
      console.log('state pet Type: ', this.state.petType);
      console.log('state pet color: ', this.state.petColor);
+     console.log('this.state:', this.state);
      
     return(
         <>
@@ -45,7 +49,7 @@ class AddPetForm extends Component {
           <TextField 
            id="Pet Name"
            label="Pet Name"
-           onChange={this.handleInputChangeFor('petName')}
+           onChange={this.handleInputChangeFor('name')}
            margin="normal"
            variant="outlined"
            helperText="What's Your Pets Name, Punk?"
@@ -54,7 +58,7 @@ class AddPetForm extends Component {
           <TextField 
            id="Pet Color"
            label="Pet Color"
-           onChange={this.handleInputChangeFor('petColor')}
+           onChange={this.handleInputChangeFor('color')}
            margin="normal"
            variant="outlined"
            helperText="It's gotta be a color. Don't be weird."
@@ -63,7 +67,7 @@ class AddPetForm extends Component {
           <TextField 
             id="Pet Type"
             label="Pet Type"
-            onChange={this.handleInputChangeFor('petType')}
+            onChange={this.handleInputChangeFor('type')}
             margin="normal"
             variant="outlined"
             fullWidth
@@ -73,16 +77,14 @@ class AddPetForm extends Component {
            select
            label="Owner"
            variant="outlined"
-           onChange={this.handleInputChangeFor('ownerName')}
+           onChange={this.handleInputChangeFor('owner_id')}
            helperText="Who Are You Really?"
            margin="normal"
            fullWidth
           >
-            <MenuItem>Need</MenuItem>
-            <MenuItem>To</MenuItem>
-            <MenuItem>Get</MenuItem>
-            <MenuItem>Reducer</MenuItem>
-            <MenuItem>Stuff</MenuItem>
+            {this.props.reduxState.ownerReducer.map(owner => {
+                return <MenuItem value={owner.id}>{owner.name}</MenuItem>
+            })}
           </TextField>
         
            <Button type="submit" name="submit" variant="contained" color="primary">Submit Pet</Button>
