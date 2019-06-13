@@ -2,7 +2,7 @@
 
 const petReducer = (state = [], action) => {
 
-    if (action.type === '') {
+    if (action.type === 'SET_PETS') {
         console.log('petReducer', action.payload)
     }
     

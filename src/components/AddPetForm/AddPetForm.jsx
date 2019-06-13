@@ -11,6 +11,10 @@ class AddPetForm extends Component {
         ownerName: ''
     }
 
+    componentDidMount(){
+        this.props.dispatch({ type: 'FETCH_PETS' })
+    }
+
     handleInputChangeFor = propertyName => (event) => {
         this.setState({
             [propertyName]: event.target.value,
@@ -63,7 +67,7 @@ class AddPetForm extends Component {
             margin="normal"
             variant="outlined"
             fullWidth
-            helperText="If it's a snake, don't lie and say it's a puppy"
+            helperText="If it's a snake, don't lie and say it's a puppy. We'll know."
           />
           <TextField 
            select
