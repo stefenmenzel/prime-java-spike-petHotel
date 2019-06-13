@@ -32,8 +32,6 @@ class PetTable extends Component {
         </TableRow>
       </TableBody>
     </Table>
-   
-   
    </div> 
   
    </>
@@ -44,7 +42,8 @@ class PetTable extends Component {
 
 const mapStateToProps = (reduxState) => {
     return {
-        reduxState
+        reduxState,
+        pets: reduxState.petReducer
     }
 }
 
