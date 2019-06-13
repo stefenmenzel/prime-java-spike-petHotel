@@ -63,7 +63,7 @@ class AddPetForm extends Component {
             margin="normal"
             variant="outlined"
             fullWidth
-            helperText="If it's a snake, don't lie and say it's a puppy"
+            helperText="If it's a snake, don't lie and say it's a puppy. We'll know."
           />
           <TextField 
            select
