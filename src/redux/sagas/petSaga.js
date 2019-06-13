@@ -14,10 +14,30 @@ function* addPet(action) {
     }
 } // end addPet Saga
 
+function* checkinPet(action){
+    try{
+        yield axios.put(`/checkPet/${action.payload.id}`);
+        yield put({type: 'FETCH_PETS'});
+    }catch(error){
+        console.log('error in CheckinPet request', error);
+    }
+}
+
+function* removePet(action){
+    try{
+        yield axios.delete(`/pets/delete/${action.payload.id}`);
+        yield put({type: 'FETCH_PETS'});
+    }catch(error){
+        console.log('error in remove pet request:', error);
+    }
+}
+
 
 // Watcher Saga
 function* petSaga() {
     yield takeLatest('ADD_PET', addPet)
+    yield takeLatest('CHECKIN_PET', checkinPet);
+    yield takeLatest('REMOVE_PET', removePet);
 } // end Watcher Saga petSaga
 
 export default petSaga;

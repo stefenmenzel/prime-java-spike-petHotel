@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import { Table, TableBody, TableCell, TableHead, TableRow } from '@material-ui/core'
+import PetTableItem from './PetTableItem.jsx';
 
 
 class PetTable extends Component {
@@ -22,14 +23,9 @@ class PetTable extends Component {
        </TableRow>
       </TableHead>
       <TableBody>
-        <TableRow>
-         <TableCell>Need</TableCell>
-         <TableCell>To</TableCell>
-         <TableCell>Map</TableCell>
-         <TableCell>Over</TableCell>
-         <TableCell>Reducer</TableCell>
-         <TableCell>Here</TableCell>
-        </TableRow>
+        {this.props.pets.map(pet => {
+          return <PetTableItem key={pet.id} pet={pet} />
+        })}
       </TableBody>
     </Table>
    </div> 
