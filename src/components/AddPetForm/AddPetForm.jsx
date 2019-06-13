@@ -11,6 +11,10 @@ class AddPetForm extends Component {
         ownerName: ''
     }
 
+    componentDidMount(){
+        this.props.dispatch({ type: 'FETCH_PETS' })
+    }
+
     handleInputChangeFor = propertyName => (event) => {
         this.setState({
             [propertyName]: event.target.value,
